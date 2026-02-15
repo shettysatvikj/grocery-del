@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: " https://grocery-del-backend1.onrender.com",
 });
 // ✅ Attach token automatically
 API.interceptors.request.use((req) => {
