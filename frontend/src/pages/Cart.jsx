@@ -114,11 +114,12 @@ console.log(cartItems)
                     <div className="w-full sm:w-24 flex-shrink-0">
                       <div className="h-24 w-full rounded-xl bg-emerald-50 overflow-hidden flex items-center justify-center">
                         {item.image ? (
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="h-full w-full object-cover"
-                          />
+                       <img
+  src={`https://grocery-del-backend1.onrender.com/uploads/${item.image}`}
+  alt={item.name}
+  className="h-full w-full object-cover"
+/>
+
                         ) : (
                           <span className="text-[11px] text-emerald-700/60">
                             No image

@@ -22,16 +22,14 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // REMOVE FROM CART (decrease quantity by 1)
+  // REMOVE FROM CART
   const removeFromCart = (product) => {
     const exists = cartItems.find((item) => item._id === product._id);
     if (!exists) return;
 
     if (exists.quantity === 1) {
-      // remove item if quantity is 1
       setCartItems(cartItems.filter((item) => item._id !== product._id));
     } else {
-      // decrease quantity by 1
       setCartItems(
         cartItems.map((item) =>
           item._id === product._id
