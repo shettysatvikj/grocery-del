@@ -35,11 +35,11 @@ const Cart = () => {
 
   const shipping = cartItems.length > 0 ? 49 : 0; // example
   const total = subtotal + shipping;
-
+console.log(cartItems)
   return (
     <>
       <Navbar />
-
+    
       <div
         className="
           relative min-h-screen
