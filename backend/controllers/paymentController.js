@@ -38,8 +38,8 @@ export const createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items,
       mode: "payment",
-      success_url: "http://localhost:5173/success",
-      cancel_url: "http://localhost:5173/cart",
+    success_url: "https://grocery-del-phi.vercel.app/success",
+      cancel_url: "https://grocery-del-phi.vercel.app/cart",
       metadata: {
         orderId: order._id.toString(),
       },
