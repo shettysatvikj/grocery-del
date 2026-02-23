@@ -38,7 +38,11 @@ export const createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items,
       mode: "payment",
+<<<<<<< HEAD
       success_url: "https://grocery-del-phi.vercel.app/success",
+=======
+    success_url: "https://grocery-del-phi.vercel.app/success",
+>>>>>>> e5a8d9da5f331b296fef53caf1f30e48b22f14b8
       cancel_url: "https://grocery-del-phi.vercel.app/cart",
       metadata: {
         orderId: order._id.toString(),
