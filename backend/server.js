@@ -36,7 +36,9 @@ app.use(
   express.raw({ type: "application/json" }),
   webhookRoutes
 );
-
+app.get("/health", (req, res) => {
+  res.send("Server is alive");
+});
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
