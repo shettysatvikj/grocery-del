@@ -115,7 +115,7 @@ console.log(cartItems)
                       <div className="h-24 w-full rounded-xl bg-emerald-50 overflow-hidden flex items-center justify-center">
                         {item.image ? (
                        <img
-  src={`https://grocery-del-backend1.onrender.com/uploads/${item.image}`}
+  src={`https://grocery-del-uqig.onrender.com/uploads/${item.image}`}
   alt={item.name}
   className="h-full w-full object-cover"
 />
