@@ -14,13 +14,21 @@ import webhookRoutes from "./routes/webhookRoutes.js";
 
 const app = express();
 
-// ✅ Middlewares
+// ✅ CORS first
 app.use(cors());
+
+// ✅ ✅ Stripe webhook MUST come BEFORE express.json()
+app.use(
+  "/api/webhook",
+  express.raw({ type: "application/json" }),
+  webhookRoutes
+);
+
+// ✅ JSON parser for everything else
 app.use(express.json());
 
 // ✅ Serve uploaded images
 app.use("/uploads", express.static("uploads"));
-// If you want public/images instead, tell me — we’ll adjust multer
 
 // ✅ Routes
 app.use("/api/auth", authRoutes);
@@ -30,26 +38,21 @@ app.use("/api/admin/products", adminProductRoutes);
 app.use("/api/admin/orders", adminOrderRoutes);
 app.use("/api/orders", orderRoutes);
 
-// ✅ Stripe webhook (must use raw body)
-app.use(
-  "/webhook",
-  express.raw({ type: "application/json" }),
-  webhookRoutes
-);
-
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+
 app.get("/health", (req, res) => {
   res.send("Server is alive");
 });
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(PORT, () =>
-      console.log(`Server running on port ${PORT}`)
+      console.log(`✅ Server running on port ${PORT}`)
     );
   })
   .catch((err) => console.log(err));
