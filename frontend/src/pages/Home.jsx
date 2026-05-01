@@ -253,7 +253,7 @@ const Home = () => {
                       >
                         {p.image ? (
                           <img
-                           src={`https://grocery-del-backend1.onrender.com/uploads/${p.image}`}
+                           src={`https://grocery-del-uqig.onrender.com/uploads/${p.image}`}
                             alt={p.name}
                             className="
                               max-h-full object-contain
